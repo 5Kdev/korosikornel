@@ -16,8 +16,6 @@ class MovieViewModel: ViewModel() {
 
     fun loadPopularMovies() = liveData {
         try {
-            Log.d("LOAD","loadPopularMovies")
-
             val receivedData = repository.getPopularMovies()
             emit(receivedData)
         } catch (e: IOException) {

@@ -1,21 +1,17 @@
 package hu.snapsoft.korosikornel
 
 import android.os.Bundle
-import android.transition.Transition
-import android.util.Log
+
 import android.view.MenuItem
 import android.widget.Toast
-import androidx.activity.OnBackPressedCallback
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import com.dev.adnetworkm.CheckNetworkStatus
-import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 import hu.snapsoft.korosikornel.data.beans.Movie
 import hu.snapsoft.korosikornel.data.viewmodels.MovieViewModel
 import kotlinx.android.synthetic.main.activity_detail.*
-import java.lang.Exception
 
 
 class DetailActivity : AppCompatActivity() {

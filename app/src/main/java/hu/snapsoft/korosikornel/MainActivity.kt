@@ -34,6 +34,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(findViewById(R.id.toolbar))
+        setTitle(getString(R.string.main_title))
 
         initLayout()
 
@@ -76,7 +77,6 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun searchMovies(query: String){
-        Log.d("LOAD", " searchMovies call: " + query)
         CheckNetworkStatus.getNetworkLiveData(applicationContext).observe(this, Observer { t ->
             when (t) {
                 true -> {
