@@ -4,7 +4,7 @@ import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 import java.util.*
 
-data class MovieDetail (
+data class MovieDetail(
     @SerializedName("adult")
     @Expose
     val adult: Boolean = false,
@@ -51,7 +51,7 @@ data class MovieDetail (
 
     @SerializedName("popularity")
     @Expose
-    val popularity:Float = 0.0f,
+    val popularity: Float = 0.0f,
 
     @SerializedName("poster_path")
     @Expose
@@ -95,13 +95,13 @@ data class MovieDetail (
 
     @SerializedName("video")
     @Expose
-    val video:Boolean = false,
+    val video: Boolean = false,
 
     @SerializedName("vote_average")
     @Expose
-    val voteAverage:Float = 0.0f,
+    val voteAverage: Float = 0.0f,
 
     @SerializedName("vote_count")
     @Expose
-    val voteCount:Int = 0
+    val voteCount: Int = 0
 )

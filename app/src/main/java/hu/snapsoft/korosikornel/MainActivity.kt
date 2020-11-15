@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
 
     val viewModel: MovieViewModel by viewModels()
     private lateinit var movieAdapter: MovieAdapter;
-    private lateinit var movies:List<Movie>;
+    private lateinit var movies: List<Movie>;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    private fun initLayout(){
+    private fun initLayout() {
 
         movies = emptyList();
 
@@ -51,6 +51,7 @@ class MainActivity : AppCompatActivity() {
             applicationContext,
             list_empty,
             { item, listPosterImg, listTitle ->
+                closeKeyboard()
                 openMovieDetail(
                     item,
                     listPosterImg,
@@ -60,9 +61,7 @@ class MainActivity : AppCompatActivity() {
         movieList.adapter = movieAdapter;
 
         movieList.setOnTouchListener(OnTouchListener { v, event ->
-            val imm: InputMethodManager =
-                getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-            imm.hideSoftInputFromWindow(floating_search_view.getWindowToken(), 0)
+            closeKeyboard()
             false
         })
 
@@ -76,7 +75,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    private fun searchMovies(query: String){
+    private fun searchMovies(query: String) {
         CheckNetworkStatus.getNetworkLiveData(applicationContext).observe(this, Observer { t ->
             when (t) {
                 true -> {
@@ -97,14 +96,15 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun openMovieDetail(movie: Movie, listPosterImg: View, listTitle: View){
+    private fun openMovieDetail(movie: Movie, listPosterImg: View, listTitle: View) {
 
         val detailIntent = Intent(this@MainActivity, DetailActivity::class.java)
         detailIntent.putExtra("MOVIE", movie);
 
-        if(listPosterImg!= null&&ViewCompat.getTransitionName(listPosterImg)!= null&&listTitle!= null&&ViewCompat.getTransitionName(
+        if (listPosterImg != null && ViewCompat.getTransitionName(listPosterImg) != null && listTitle != null && ViewCompat.getTransitionName(
                 listTitle
-            )!=null){
+            ) != null
+        ) {
 
             val options = ActivityOptionsCompat.makeSceneTransitionAnimation(
                 this, Pair(
@@ -118,11 +118,16 @@ class MainActivity : AppCompatActivity() {
             );
             detailIntent.putExtra("TITLE_TRANSITION_NAME", ViewCompat.getTransitionName(listTitle));
             startActivity(detailIntent, options.toBundle())
-        }
-        else{
+        } else {
             startActivity(detailIntent)
         }
 
+    }
+
+    private fun closeKeyboard() {
+        val imm: InputMethodManager =
+            getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(floating_search_view.getWindowToken(), 0)
     }
 
 }

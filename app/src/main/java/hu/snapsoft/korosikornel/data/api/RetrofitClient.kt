@@ -9,17 +9,17 @@ import retrofit2.converter.gson.GsonConverterFactory
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import hu.snapsoft.korosikornel.BuildConfig
 
-object RetrofitClient{
+object RetrofitClient {
 
     fun Context.getStringResourceByName(stringName: String): String? {
         val resId = resources.getIdentifier(stringName, "string", packageName)
         return getString(resId)
     }
 
-    private val authInterceptor = Interceptor {chain->
+    private val authInterceptor = Interceptor { chain ->
         val newUrl = chain.request().url()
             .newBuilder()
-            .addQueryParameter("api_key",BuildConfig.SERVER_KEY)
+            .addQueryParameter("api_key", BuildConfig.SERVER_KEY)
             .build()
 
         val newRequest = chain.request()
@@ -30,7 +30,7 @@ object RetrofitClient{
         chain.proceed(newRequest)
     }
 
-    private val loggingInterceptor =  HttpLoggingInterceptor().apply {
+    private val loggingInterceptor = HttpLoggingInterceptor().apply {
         level = HttpLoggingInterceptor.Level.BODY
     }
 
@@ -40,8 +40,7 @@ object RetrofitClient{
         .build()
 
 
-
-    fun retrofit() : Retrofit = Retrofit.Builder()
+    fun retrofit(): Retrofit = Retrofit.Builder()
         .client(tmdbClient)
         .baseUrl(BuildConfig.SERVER_URL)
         .addCallAdapterFactory(CoroutineCallAdapterFactory())
@@ -49,6 +48,6 @@ object RetrofitClient{
         .build()
 
 
-    val movieApi : MovieDatabaseApi = retrofit().create(MovieDatabaseApi::class.java)
+    val movieApi: MovieDatabaseApi = retrofit().create(MovieDatabaseApi::class.java)
 
 }

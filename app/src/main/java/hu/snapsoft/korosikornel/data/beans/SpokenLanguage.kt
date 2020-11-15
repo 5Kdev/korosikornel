@@ -3,7 +3,7 @@ package hu.snapsoft.korosikornel.data.beans
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-data class SpokenLanguage (
+data class SpokenLanguage(
     @SerializedName("iso_639_1")
     @Expose
     var iso6391: String? = null,

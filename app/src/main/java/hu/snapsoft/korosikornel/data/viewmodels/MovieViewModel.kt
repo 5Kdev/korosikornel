@@ -11,7 +11,7 @@ import hu.snapsoft.korosikornel.data.MovieRepository
 import kotlinx.coroutines.flow.*
 import java.io.IOException
 
-class MovieViewModel: ViewModel() {
+class MovieViewModel : ViewModel() {
     val repository: MovieRepository = MovieRepository();
 
     fun loadPopularMovies() = liveData {
@@ -19,22 +19,22 @@ class MovieViewModel: ViewModel() {
             val receivedData = repository.getPopularMovies()
             emit(receivedData)
         } catch (e: IOException) {
-            Log.d("loadPopularMovies",e.toString())
+            Log.d("loadPopularMovies", e.toString())
         } catch (e: Exception) {
-          Log.d("loadPopularMovies",e.toString())
+            Log.d("loadPopularMovies", e.toString())
         }
     }
 
     fun loadDetail(movieId: Int) = liveData {
         try {
-            Log.d("LOAD","loadDetail")
+            Log.d("LOAD", "loadDetail")
 
             val detailData = repository.getMovieDetail(movieId)
             emit(detailData)
         } catch (e: IOException) {
-            Log.d("loadDetail",e.toString())
+            Log.d("loadDetail", e.toString())
         } catch (e: Exception) {
-            Log.d("loadDetail",e.toString())
+            Log.d("loadDetail", e.toString())
         }
     }
 
@@ -43,9 +43,9 @@ class MovieViewModel: ViewModel() {
             val searchData = repository.search(query)
             emit(searchData)
         } catch (e: IOException) {
-            Log.d("loadDetail",e.toString())
+            Log.d("loadDetail", e.toString())
         } catch (e: Exception) {
-            Log.d("loadDetail",e.toString())
+            Log.d("loadDetail", e.toString())
         }
     }
 

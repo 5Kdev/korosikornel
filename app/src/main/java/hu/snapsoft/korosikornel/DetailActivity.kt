@@ -17,7 +17,7 @@ import kotlinx.android.synthetic.main.activity_detail.*
 class DetailActivity : AppCompatActivity() {
 
     val viewModel: MovieViewModel by viewModels()
-    lateinit var item:Movie;
+    lateinit var item: Movie;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,10 +29,12 @@ class DetailActivity : AppCompatActivity() {
 
         item = intent.extras!!.getParcelable<Movie>("MOVIE")!!
 
-        val image_transition: String? = intent.getSerializableExtra("IMAGE_TRANSITION_NAME") as? String
-        val title_transition: String? = intent.getSerializableExtra("TITLE_TRANSITION_NAME") as? String
+        val image_transition: String? =
+            intent.getSerializableExtra("IMAGE_TRANSITION_NAME") as? String
+        val title_transition: String? =
+            intent.getSerializableExtra("TITLE_TRANSITION_NAME") as? String
 
-        if(image_transition!=null&&title_transition!=null){
+        if (image_transition != null && title_transition != null) {
             detailPoster.setTransitionName(image_transition);
             detailTitle.setTransitionName(title_transition);
         }
@@ -44,38 +46,39 @@ class DetailActivity : AppCompatActivity() {
             .noFade()
             .placeholder(R.drawable.ic_movidb_placeholder)
             .error(R.drawable.ic_movidb_placeholder)
-            .into(detailPoster, object: com.squareup.picasso.Callback {
+            .into(detailPoster, object : com.squareup.picasso.Callback {
                 override fun onSuccess() {
-                   supportStartPostponedEnterTransition()
+                    supportStartPostponedEnterTransition()
                 }
+
                 override fun onError(e: java.lang.Exception?) {
                 }
             })
     }
 
-    fun loadDetail(){
-            CheckNetworkStatus.getNetworkLiveData(applicationContext).observe(this, Observer { t ->
-                when (t) {
-                    true -> {
-                        viewModel.loadDetail(item.id).observe(this, Observer { t ->
-                            detailRelease.text="Release date: "+t.releaseDate
-                           var genres:String = "Genres: "
-                            t.genres.forEach { it ->
-                                genres +=it.name+", "
-                            }
-                            detailGenre.text=genres
-                            detailBudget.text="Budget: "+t.budget.toString()
-                            detailDescription.text=t.overview
-                        })
-                    }
-                    false -> {
-                        Toast.makeText(this, "No Network Connection", Toast.LENGTH_SHORT).show()
-                    }
-                    null -> {
-                        // TODO: Handle the connection...
-                    }
+    fun loadDetail() {
+        CheckNetworkStatus.getNetworkLiveData(applicationContext).observe(this, Observer { t ->
+            when (t) {
+                true -> {
+                    viewModel.loadDetail(item.id).observe(this, Observer { t ->
+                        detailRelease.text = "Release date: " + t.releaseDate
+                        var genres: String = "Genres: "
+                        t.genres.forEach { it ->
+                            genres += it.name + ", "
+                        }
+                        detailGenre.text = genres
+                        detailBudget.text = "Budget: " + t.budget.toString()
+                        detailDescription.text = t.overview
+                    })
                 }
-            })
+                false -> {
+                    Toast.makeText(this, "No Network Connection", Toast.LENGTH_SHORT).show()
+                }
+                null -> {
+                    // TODO: Handle the connection...
+                }
+            }
+        })
     }
 
 
@@ -91,7 +94,6 @@ class DetailActivity : AppCompatActivity() {
         supportFinishAfterTransition()
         super.onBackPressed()
     }
-    
 
 
 }

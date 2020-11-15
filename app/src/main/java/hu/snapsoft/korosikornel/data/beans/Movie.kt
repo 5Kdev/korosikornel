@@ -5,7 +5,7 @@ import android.os.Parcelable
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-data class Movie (
+data class Movie(
     @SerializedName("poster_path")
     @Expose
     val posterPath: String? = null,
@@ -49,20 +49,20 @@ data class Movie (
 
     @SerializedName("popularity")
     @Expose
-    val popularity:Float = 0.0f,
+    val popularity: Float = 0.0f,
 
     @SerializedName("vote_count")
     @Expose
-    val voteCount:Int = 0,
+    val voteCount: Int = 0,
 
     @SerializedName("video")
     @Expose
-    val video:Boolean = false,
+    val video: Boolean = false,
 
     @SerializedName("vote_average")
     @Expose
     val voteAverage: Float = 0.0f
-    ):  Parcelable {
+) : Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readString(),
         parcel.readByte() != 0.toByte(),
