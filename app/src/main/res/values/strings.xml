@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">korosikornel</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="general_server_not_available" />
+    <string name="general_unknown_error" />
+    <string name="global_error_logout_failed_message" />
+    <string name="lorem_ipsum" >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sagittis tristique sem vitae dignissim. Pellentesque interdum justo at tortor semper luctus. Aliquam erat volutpat. Aliquam leo felis, feugiat sed varius quis, tristique quis diam. Praesent vestibulum luctus pellentesque. In venenatis lobortis velit interdum pretium. Duis in congue felis, eu hendrerit sapien. Nunc ac urna iaculis, venenatis purus vel, imperdiet libero. Aenean arcu purus, scelerisque eu justo eu, pellentesque tincidunt mi. Duis eget aliquam leo, vel porttitor velit.
+
+Nam ultricies nunc vitae porta elementum. Nunc convallis est at efficitur dictum. Sed dignissim dui eu lacus laoreet facilisis. Proin maximus magna auctor orci tincidunt, ac iaculis nulla lacinia. Nunc pharetra laoreet nibh nec semper. Vivamus placerat lorem in nibh volutpat mattis. Integer vitae tellus dui. Phasellus a euismod odio. Integer in iaculis dolor.
+
+Fusce vehicula ex in quam molestie, vel porta velit cursus. Nulla quis dapibus dolor. Curabitur gravida enim libero, ut pulvinar magna ullamcorper sed. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse nulla sapien, condimentum sed ante a, tincidunt cursus nulla. Suspendisse potenti. Nunc dapibus ante urna, non congue nisl tempus in. Phasellus tincidunt, justo sed viverra tincidunt, felis metus hendrerit turpis, ut venenatis sem urna vitae neque. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+Nullam rhoncus, lorem at sollicitudin aliquet, orci est faucibus nunc, eu ultricies elit ante a dolor. Integer a volutpat libero. Nullam placerat mollis tellus, eu iaculis metus luctus in. Fusce volutpat porta lacus, vitae tempor nisi blandit ut. Ut eget lacus nisi. Ut iaculis neque a tellus convallis finibus. Pellentesque fermentum ex et eros dapibus interdum ut ut nunc. Vestibulum augue turpis, dignissim eu malesuada quis, lobortis eu velit. Donec condimentum a est eget imperdiet. Praesent molestie pellentesque mollis.
+
+Pellentesque pulvinar non arcu eu sodales. Nullam porttitor nulla non nulla volutpat, in facilisis risus consectetur. Proin id magna mi. In commodo tellus leo, at pulvinar justo vestibulum non. Proin a feugiat purus. Quisque semper sem a dui condimentum convallis. Nulla facilisi.</string>
+    <string name="image_transition_name">transition_image</string>
+    <string name="title_transition_name">title_transition</string>
+    <string name="don_t_find_item_for_this_search">Don\'t find item for this search</string>
+    <string name="start_type_on_searchbar">Start type on searchbar</string>
+</resources>
